@@ -18,11 +18,10 @@
             <% end %>
         <% else %>
             <div class="nav_button" id='user'><%= current_user.email %></div>
-            
+            <div class="nav_button" id="history">View my gifts</div>
             <%= link_to session_path('current'), method: 'DELETE' do %>
                 <div class="nav_button" id='logout'>Logout</div>
             <% end %>
-        <% end %>
-        <div class="nav_button" id="history">View my gifts</div>
+        <% end %>   
     </div>
 </div>
