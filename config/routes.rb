@@ -9,6 +9,7 @@ GoT::Application.routes.draw do
   resources :gifts, except: [:index]
   get 'gift/find' => 'gifts#find', as: 'find_gift'
   resources :users, except: [:index, :show]
+  get 'user/profile' => 'users#profile', as: 'user_profile'
   resources :sessions, only: [:new, :create, :destroy]
 
   # Example of regular route:
