@@ -6,7 +6,7 @@ class GiftsController < ApplicationController
     end
 
     def show
-        @gift = Gift.find_by_id(params[:gift_id])
+        @gift = Gift.find_by(gift_comp_id: params[:gift_id])
     end
 
     def new
@@ -18,6 +18,7 @@ class GiftsController < ApplicationController
         @gift = Gift.new(gift_params)
 
         if @gift.save
+            id = @gift.create_secure_gift_id
             redirect_to root_path, notice: 'Your gift has been successfully created!'
         else
             render :new, notice: 'Uh oh.'
