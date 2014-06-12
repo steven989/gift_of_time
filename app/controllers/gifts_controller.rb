@@ -10,11 +10,11 @@ class GiftsController < ApplicationController
     end
 
     def new
-
         @gift = Gift.new
     end
 
     def create
+        params[:gift][:user_id] = current_user.id
         @gift = Gift.new(gift_params)
 
         if @gift.save
@@ -39,7 +39,7 @@ class GiftsController < ApplicationController
     private
 
     def gift_params
-        params.require(:gift).permit(:gift_name, :message)
+        params.require(:gift).permit(:gift_name, :message, :user_id)
     end
 
 end
