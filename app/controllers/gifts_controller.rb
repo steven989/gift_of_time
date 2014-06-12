@@ -1,5 +1,7 @@
 class GiftsController < ApplicationController
 
+    before_filter :require_login, only: [:new, :create, :edit, :update, :destroy]
+
     def find
     end
 
@@ -8,6 +10,7 @@ class GiftsController < ApplicationController
     end
 
     def new
+
         @gift = Gift.new
     end
 
