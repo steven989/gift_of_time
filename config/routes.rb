@@ -8,6 +8,8 @@ GoT::Application.routes.draw do
   root to: 'pages#index'
   resources :gifts, except: [:index]
   get 'gift/find' => 'gifts#find', as: 'find_gift'
+  resources :users, except: [:index, :show]
+  resources :sessions, only: [:new, :create, :destroy]
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

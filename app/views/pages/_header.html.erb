@@ -8,9 +8,21 @@
             <div class="nav_button" id="new_gift">Make a gift</div>
         <% end %>
         <div class="nav_button" id="volunteer">Volunteer resources</div>
-        <div class="nav_button" id="login">Login</div>
+        
+        <% if !current_user %>
+            <%= link_to new_session_path do %>
+                <div class="nav_button" id="login">Login</div>
+            <% end %>
+            <%= link_to new_user_path do %>
+                <div class="nav_button" id="signup">Sign up</div>
+            <% end %>
+        <% else %>
+            <div class="nav_button" id='user'><%= current_user.email %></div>
+            
+            <%= link_to session_path('current'), method: 'DELETE' do %>
+                <div class="nav_button" id='logout'>Logout</div>
+            <% end %>
+        <% end %>
         <div class="nav_button" id="history">View my gifts</div>
     </div>
-
-
 </div>

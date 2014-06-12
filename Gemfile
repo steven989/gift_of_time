@@ -48,3 +48,6 @@ end
 # custom gems
 # 1. make the console data look better
 gem 'hirb'
+
+# 2. User authentication
+gem 'sorcery'
