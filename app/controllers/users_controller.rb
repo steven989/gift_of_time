@@ -11,6 +11,7 @@ class UsersController < ApplicationController
         if @user.save
             redirect_to root_path, notice: 'User successfully created.'
             auto_login @user
+            GiftMailer.welcome_email(@user).deliver
         else 
             render :new
         end

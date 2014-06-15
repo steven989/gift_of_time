@@ -12,6 +12,7 @@ class OauthsController < ApplicationController
             @user = create_from(provider)
             reset_session
             auto_login(@user)
+            GiftMailer.welcome_email(@user).deliver
             redirect_to root_path, notice: "Logged in from #{provider.titleize}"
         rescue
             redirect_to root_path, notice: "Failed to log in from #{provider.titleize}"
