@@ -1,4 +1,6 @@
 GoT::Application.routes.draw do
+  get "oauths/oauth"
+  get "oauths/callback"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -11,7 +13,9 @@ GoT::Application.routes.draw do
   resources :users, except: [:index, :show]
   get 'user/profile' => 'users#profile', as: 'user_profile'
   resources :sessions, only: [:new, :create, :destroy]
-
+  post "oauth/callback" => "oauths#callback"
+  get 'oauth/callback' => 'oauths#callback'
+  get "oauth/:provider" => "oauths#oauth", :as => :auth_at_provider
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

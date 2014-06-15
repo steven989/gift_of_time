@@ -14,5 +14,7 @@
             <%= f.password_field :password_confirmation %>
         </div>
         <%= f.submit 'Sign up now', class: 'ui tiny button' %>
+        <div class="ui horizontal divider">Or sign up with</div>
+        <%= link_to auth_at_provider_path(provider: :facebook), class: 'mini ui facebook button', id: 'facebook' do %>facebook<% end %>
     <% end %>
 </div>

@@ -50,3 +50,9 @@ gem 'hirb'
 
 # 2. User authentication
 gem 'sorcery'
+
+# 3. Keep application keys safe
+gem 'figaro'
+
+# 4. Sign up and log in using Facebook
+gem 'oauth2'
