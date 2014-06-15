@@ -1,5 +1,12 @@
-
+<%= render 'pages/header' %>
+<div class="ui form segment center_form">
+    
 <%= form_tag gift_path('current'), method: 'GET' do %>
-    <%= text_field_tag 'gift_id' %>
-    <%= submit_tag 'Find your gift' %>
+    <div class="field">
+        <%= label_tag 'What is your gift number?' %>
+        <%= text_field_tag 'gift_id' %>
+    </div>
+    <%= submit_tag 'Find your gift', class: "ui tiny button" %>
 <% end %>
+
+</div>

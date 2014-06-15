@@ -1,0 +1,131 @@
+// Variables:
+
+$font-stack: "Lato", sans-serif;
+
+$darker-theme: rgb(240, 178, 99);
+$lighter-theme: rgb(255, 249, 229);
+$hilite: rgb(241, 190, 124);
+
+/* --------------- Across the whole document ------------------- */
+
+body {
+    font-family: $font-stack, sans-serif;
+    background-color: $lighter-theme;
+}
+
+
+/* --------------- Header ------------------- */
+
+.header {
+    background-color: $darker-theme;
+    position: relative;
+    height: 3rem;
+
+    .logo {
+        position: absolute;
+        left: 10rem;
+        top: 1rem;
+        color: $lighter-theme;
+
+            &:hover {
+                background-color: $hilite;
+            }
+    }
+
+    .nav{
+        position: absolute;
+        right: 10rem;
+        min-width: 30rem;
+
+        .nav_button {
+            cursor: pointer;
+            box-sizing:border-box;
+            -moz-box-sizing:border-box; /* Firefox */
+            height: 3rem;
+            float: left;
+            padding: 0 0.5rem;
+            padding-top: 1rem;
+            color: $lighter-theme;
+
+            &:hover {
+                background-color: $hilite;
+            }
+        }
+    }
+}
+
+/* --------------- Index ------------------- */
+
+.video, .how_this_works, .other_content {
+    position: relative;
+    margin: 5rem 10rem; 
+}
+
+.video {
+
+    text-align: center;
+
+    h1{
+        font-size: 3rem;
+        margin: 2rem 0;
+    }
+
+    img {
+        width: 75%;
+    }
+}
+
+.how_this_works {
+
+    text-align: center;
+
+    h1 {
+        font-size: 3rem;
+        margin: 2rem 0;
+    }
+}
+
+.other_content {
+
+    text-align: center;
+
+    h1 {
+        font-size: 3rem;
+        margin: 2rem 0;
+    }
+}
+
+/* --------------- Find gift ------------------- */
+
+.center_form {
+    position: absolute;
+    left: 50%;
+    top: 7rem;
+    margin-left: -20rem;
+    padding: 3rem;
+    width: 40rem;
+    background-color: rgba(255,255,255,0.5);
+
+    .button {
+        min-width: 10rem;
+    }
+}
+
+/* --------------- Show gift history ------------------- */
+
+.gift_history_container {
+    
+    position: absolute;
+    width: 30rem;
+    top: 5rem;
+    left: 50%;
+    margin-left: -15rem;
+
+    .gift_less_detail {
+        width: 100%;
+        background-color: rgba(255,255,255,0.5);
+        position: relative;
+        margin: 2rem 0;
+        padding: 2rem;
+    }
+}

@@ -1,9 +1,14 @@
-<%= form_for @gift do |f| %>
-    <%= f.label :gift_name, 'Gift name' %>
-    <%= f.text_field :gift_name %>
-    <br>
-    <%= f.label :message, 'Message' %>
-    <%= f.text_field :message %>
-    <br>
-    <%= f.submit 'Create gift' %>
-<% end %>
+<%= render 'pages/header' %>
+<div class="ui form segment center_form">
+    <%= form_for @gift do |f| %>
+        <div class="field">
+            <%= f.label :gift_name, 'Gift name' %>
+            <%= f.text_field :gift_name %>
+        </div>
+        <div class="field">
+            <%= f.label :message, 'Message' %>
+            <%= f.text_field :message %>
+        </div>
+        <%= f.submit 'Create gift', class: 'ui tiny button' %>
+    <% end %>
+</div>
