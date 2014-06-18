@@ -8,6 +8,9 @@
     <% else %>
         <div class="section">
             From <%= @gift.user.display_name %> to <%= @gift.recipient_name %>
+            <% if @gift.status == "In progress" %>
+               . <em>This gift is currently in progress.</em>
+            <% end %>
         </div>
         <div class="section">
             Cause donated to:

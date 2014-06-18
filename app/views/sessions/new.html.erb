@@ -14,6 +14,7 @@
         </div>    
 
         <%= submit_tag 'Login', class: 'ui tiny button' %>
-
+        <div class="ui horizontal divider">Or log in with</div>
+        <%= link_to auth_at_provider_path(provider: :facebook), class: 'mini ui facebook button', id: 'facebook' do %>facebook<% end %>
     <% end %>
 </div>
