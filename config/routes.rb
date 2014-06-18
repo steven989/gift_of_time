@@ -16,6 +16,7 @@ GoT::Application.routes.draw do
   post "oauth/callback" => "oauths#callback"
   get 'oauth/callback' => 'oauths#callback'
   get "oauth/:provider" => "oauths#oauth", :as => :auth_at_provider
+  get 'gift/:gift_id/complete' => 'gifts#complete', as: 'complete_gift'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

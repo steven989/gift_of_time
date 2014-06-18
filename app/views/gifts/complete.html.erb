@@ -1,0 +1,35 @@
+<%= render 'pages/header' %>
+
+<div class="ui form segment center_form">
+    <%= form_for @gift, url: gift_path(@gift.gift_comp_id), method: 'PATCH' do |f| %>
+        <div class="field">
+            <%= f.label :recipient_name, 'Recipient' %>
+            <%= f.text_field :recipient_name, readonly: "readonly", disabled: "disabled" %>
+        </div>
+        <div class="field">
+            <%= f.label :relationship_to_gifter, 'Relationship' %>
+            <%= f.text_field :relationship_to_gifter, readonly: "readonly", disabled: "disabled" %>
+        </div>
+        <div class="field">
+            <%= f.label :cause, 'Cause' %>
+            <%= f.text_field :cause, readonly: "readonly", disabled: "disabled" %>
+        </div>
+        <div class="field">
+            <%= f.label :description, 'Description of volunteer' %>
+            <%= f.text_area :description, readonly: "readonly", disabled: "disabled" %>
+        </div>
+        <div class="field">
+            <%= f.label :inspiration, 'How did the recipient inspire you to perform this specific act?' %>
+            <%= f.text_area :inspiration %>
+        </div>
+        <div class="field">
+            <%= f.label :feel, 'How did you feel performing this act?' %>
+            <%= f.text_area :feel %>
+        </div>
+        <div class="field">
+            <%= f.label :detailed_message, 'Leave a personal message for the recipient' %>
+            <%= f.text_area :detailed_message %>
+        </div>
+        <%= f.submit 'Complete gift', class: 'ui tiny button' %>
+    <% end %>
+</div>

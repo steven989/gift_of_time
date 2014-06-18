@@ -1,6 +1,6 @@
 class GiftsController < ApplicationController
 
-    before_filter :require_login, only: [:new, :create, :edit, :update, :destroy]
+    before_filter :require_login, only: [:new, :create, :edit, :update, :complete, :destroy]
 
     def find
     end
@@ -19,6 +19,7 @@ class GiftsController < ApplicationController
 
         if @gift.save
             id = @gift.create_secure_gift_id
+            @gift.update_attribute(:status, 'In progress')
             redirect_to root_path, notice: 'Your gift has been successfully created!'
         else
             render :new, notice: 'Uh oh.'
@@ -30,8 +31,14 @@ class GiftsController < ApplicationController
     end
 
     def update
-        @gift = Gift.find_by_id(params[:id])
+        @gift = Gift.find_by(gift_comp_id: params[:id])
+        @gift.update_attributes(gift_params)
+        redirect_to user_profile_path
     end 
+
+    def complete
+        @gift = Gift.find_by(gift_comp_id: params[:gift_id])
+    end
 
     def destroy
         @gift = Gift.find_by_id(params[:id])
@@ -40,7 +47,7 @@ class GiftsController < ApplicationController
     private
 
     def gift_params
-        params.require(:gift).permit(:recipient_name, :relationship_to_gifter, :cause, :other_cause, :description, :user_id)
+        params.require(:gift).permit(:recipient_name, :relationship_to_gifter, :cause, :other_cause, :description, :user_id, :inspiration, :feel, :detailed_message)
     end
 
 end

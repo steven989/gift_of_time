@@ -1,13 +1,21 @@
 
 <div class="gift_less_detail ui form segment">
     <div class="field">
-        <h1>Gift name</h1>
-        <div class="ui divider"></div>
-        <%= gift.gift_name %>
+        <h1>Gift: <%= gift.gift_comp_id %></h1>
     </div>
     <div class="field">
-        <h1>Message</h1>
-        <div class="ui divider"></div>
-        <%= gift.message %>
+        <h1>Recipient: <%= gift.recipient_name %></h1>
+        
     </div>
+    <div class="field">
+        <h1>Gift creation date: <%= gift.created_at.strftime('%Y-%m-%d').to_s %></h1>
+    </div>
+    <div class="ui tiny button">Edit gift info</div>
+    <% if gift.status == 'In progress' %>
+        <%= link_to complete_gift_path(gift.gift_comp_id) do %>
+            <div class="ui tiny button">Complete gift</div>
+        <% end %>
+    <% end %>
+    <div class="ui tiny button">Delete gift</div>
+    
 </div>
