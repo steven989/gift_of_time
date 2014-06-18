@@ -12,4 +12,8 @@ class User < ActiveRecord::Base
 
   accepts_nested_attributes_for :authentications
 
+  def display_name
+    self.first_name.blank? || self.first_name.nil? ? self.email : self.first_name+" "+self.last_name
+  end
+
 end

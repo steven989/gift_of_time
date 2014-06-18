@@ -56,3 +56,9 @@ gem 'figaro'
 
 # 4. Sign up and log in using Facebook
 gem 'oauth2'
+
+# 5. Photo upload
+gem 'carrierwave'
+
+# 6. For manipulating photo uploads
+gem 'rmagick', :require => 'RMagick'

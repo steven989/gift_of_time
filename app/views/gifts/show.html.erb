@@ -1,1 +1,35 @@
-<%= render @gift %>
+<%= render 'pages/header' %>
+
+<div class="ui piled segment center_form">
+    <% if @gift.nil? %>
+        <div class="section">
+            Gift could not be found.
+        </div>
+    <% else %>
+        <div class="section">
+            From <%= @gift.user.display_name %> to <%= @gift.recipient_name %>
+        </div>
+        <div class="section">
+            Cause donated to:
+            <%= @gift.cause %>
+        </div>
+        <div class="section">
+            Gift description:
+            <%= @gift.description %>
+        </div>
+        <div class="section">
+            Inspiration to volunteer:
+            <%= @gift.inspiration %>
+        </div>
+        <div class="section">
+            Message for <%= @gift.recipient_name %>:
+            <%= @gift.detailed_message %>
+        </div>
+        <div class="section">
+            <%= image_tag @gift.volunteer_photos.url(:thumb)%>
+        </div>
+    <% end %>
+    <%= link_to find_gift_path do %>
+        <div class="ui tiny button">Back</div>
+    <% end %>
+</div>

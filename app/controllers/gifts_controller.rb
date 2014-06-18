@@ -34,10 +34,17 @@ class GiftsController < ApplicationController
         @gift = Gift.find_by(gift_comp_id: params[:id])
         @gift.update_attributes(gift_params)
         redirect_to user_profile_path, notice: 'Your gift has been updated'
+        @gift.attempt_complete
     end 
 
-    def complete
+    def complete        
         @gift = Gift.find_by(gift_comp_id: params[:gift_id])
+    end
+
+    def remove_photo
+        @gift = Gift.find_by(gift_comp_id: params[:gift_id])
+        @gift.remove_volunteer_photos!
+        redirect_to edit_gift_path(@gift.gift_comp_id), notice: 'Your gift has been updated'
     end
 
     def destroy
@@ -49,7 +56,7 @@ class GiftsController < ApplicationController
     private
 
     def gift_params
-        params.require(:gift).permit(:recipient_name, :relationship_to_gifter, :cause, :other_cause, :description, :user_id, :inspiration, :feel, :detailed_message)
+        params.require(:gift).permit(:recipient_name, :relationship_to_gifter, :cause, :other_cause, :description, :user_id, :inspiration, :feel, :detailed_message, :volunteer_photos)
     end
 
 end

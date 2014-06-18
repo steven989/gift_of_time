@@ -1,5 +1,8 @@
 
-<div class="gift_less_detail ui form segment">
+<div class="gift_less_detail ui form">
+    <div class="status <%= if gift.status == 'In progress'; 'in_progress' elsif gift.status == 'Completed'; 'completed' end%>">
+        <%= gift.status %>
+    </div>
     <div class="field">
         <h1>Gift: <%= gift.gift_comp_id %></h1>
     </div>
@@ -21,5 +24,4 @@
     <%= link_to gift_path(gift.gift_comp_id), method: 'DELETE' do %>
         <div class="ui tiny button">Delete gift</div>
     <% end %>
-    
 </div>

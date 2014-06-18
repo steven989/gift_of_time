@@ -1,6 +1,6 @@
 <%= render 'pages/header' %>
 
-<div class="ui form segment center_form">
+<div class="ui form center_form">
     <%= form_for @gift, url: gift_path(@gift.gift_comp_id), method: 'PATCH' do |f| %>
         <div class="field">
             <%= f.label :recipient_name, 'Who are you donating your time for?' %>
@@ -53,7 +53,7 @@
             <%= f.label :description, 'Describe the volunteer act you will perform' %>
             <%= f.text_area :description %>
         </div>
-        <% if @gift.status == 'Gift complete' %>
+        <% if @gift.status == 'Completed' %>
             <div class="field">
                 <%= f.label :inspiration, 'How did the recipient inspire you to perform this specific act?' %>
                 <%= f.text_area :inspiration %>
@@ -66,7 +66,24 @@
                 <%= f.label :detailed_message, 'Leave a personal message for the recipient' %>
                 <%= f.text_area :detailed_message %>
             </div>
+            <div class="field">
+                <% if @gift.photo_exists? %>
+
+                    <%= image_tag @gift.volunteer_photos.url(:thumb)%><br><br>
+                    <%= link_to remove_photo_path(@gift.gift_comp_id), method: 'PATCH' do %>
+                        <div class="ui tiny button">Remove photo</div>
+                    <% end %>
+                <% else %>
+                    
+                        <%= f.label :volunteer_photos, 'Upload a picture of you performing the act (JPEG, GIF or PNG)' %>
+                        <%= f.file_field :volunteer_photos %>
+                    
+                <% end %>
+            </div>
         <% end %>
         <%= f.submit 'Update gift', class: 'ui tiny button' %>
     <% end %>
+        <%= link_to user_profile_path do %>
+            <div class="ui tiny button">Back</div>
+        <% end %>
 </div>

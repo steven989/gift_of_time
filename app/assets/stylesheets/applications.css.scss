@@ -13,7 +13,6 @@ body {
     background-color: $lighter-theme;
 }
 
-
 /* --------------- Header ------------------- */
 
 .header {
@@ -101,7 +100,7 @@ body {
     position: absolute;
     left: 50%;
     top: 7rem;
-    margin-left: -20rem;
+    margin-left: -20rem !important;
     padding: 3rem;
     width: 40rem;
     background-color: rgba(255,255,255,0.5);
@@ -127,5 +126,25 @@ body {
         position: relative;
         margin: 2rem 0;
         padding: 2rem;
+    }
+
+    .in_progress {
+        color: #FFA300;
+        border-color: #FFA300;
+    }
+
+    .completed {
+        color: #2FCA7A;
+        border-color: #2FCA7A;
+    }
+
+    .status {
+        position: absolute;
+        right: 2rem;
+        top: 1rem;
+        display: inline-block;
+        border: 1px solid;
+        border-radius: 5px;
+        padding: 0.2rem;
     }
 }

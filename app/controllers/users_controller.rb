@@ -27,7 +27,7 @@ class UsersController < ApplicationController
     end 
 
     def profile
-        @gifts = current_user.gifts
+        @gifts = current_user.gifts.order('created_at desc')
     end
 
     private
