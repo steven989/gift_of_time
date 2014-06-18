@@ -2,12 +2,55 @@
 <div class="ui form segment center_form">
     <%= form_for @gift do |f| %>
         <div class="field">
-            <%= f.label :gift_name, 'Gift name' %>
-            <%= f.text_field :gift_name %>
+            <%= f.label :recipient_name, 'Who are you donating your time for?' %>
+            <%= f.text_field :recipient_name, placeholder: 'Full name' %>
         </div>
         <div class="field">
-            <%= f.label :message, 'Message' %>
-            <%= f.text_field :message %>
+            <%= f.label :relationship_to_gifter, 'Relationship' %>
+            <select id='gift_relationship_to_gifter' name='gift[relationship_to_gifter]'>
+                <option class="item" value="mother_father">Mother/Father</option>
+                <option class="item" value="brother_sister">Brother/Sister</option> 
+                <option class="item" value="aunt_uncle">Aunt/Uncle</option> 
+                <option class="item" value="cousin">Cousin</option> 
+                <option class="item" value="friend">Friend</option> 
+                <option class="item" value="Mentor">Mentor</option> 
+                <option class="item" value="significant_other">Significant other</option> 
+            </select>
+        </div>
+        <div class="field">
+             <%= f.label :cause, 'To what cause are you donating your time?' %>
+            <select id='gift_cause' name='gift[cause]'>
+                <option class="item" value="academia_learning_skillsdev">Academia, Learning and Skills Development</option>
+                <option class="item" value="alcoholism_drugabuse">Alcoholism and Drug Abuse</option> 
+                <option class="item" value="animal_rights">Animal Rights</option> 
+                <option class="item" value="childrens_support">Children's Support and Rights</option> 
+                <option class="item" value="civil_rights">Civil Rights</option> 
+                <option class="item" value="community_involvement">Community Involvement</option> 
+                <option class="item" value="disaster_support">Disaster Support</option> 
+                <option class="item" value="education">Education</option> 
+                <option class="item" value="elderly">Elderly</option> 
+                <option class="item" value="environmental">Environmental</option> 
+                <option class="item" value="homeless_poverty">Homeless/Poverty</option> 
+                <option class="item" value="human_rights">Human Rights</option> 
+                <option class="item" value="illness_research_awareness">Illness - Research and Awareness</option> 
+                <option class="item" value="international_aid">International Aid</option> 
+                <option class="item" value="lgbt">LGBT</option> 
+                <option class="item" value="mental_health">Mental Health</option> 
+                <option class="item" value="pay_it_forward">Pay it Forward - Act of Kindness</option> 
+                <option class="item" value="political">Political</option> 
+                <option class="item" value="racism">Racism</option> 
+                <option class="item" value="religious">Religious</option> 
+                <option class="item" value="womans_rights">Women's Rights</option> 
+                <option class="item" value="other">Other</option> 
+            </select>           
+        </div>
+        <div class="field">
+            <%= f.label :other_cause, 'If other, what social cause?' %>
+            <%= f.text_field :other_cause %>
+        </div>
+        <div class="field">
+            <%= f.label :description, 'Describe the volunteer act you will perform' %>
+            <%= f.text_area :description %>
         </div>
         <%= f.submit 'Create gift', class: 'ui tiny button' %>
     <% end %>
