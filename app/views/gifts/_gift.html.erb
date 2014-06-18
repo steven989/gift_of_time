@@ -10,12 +10,16 @@
     <div class="field">
         <h1>Gift creation date: <%= gift.created_at.strftime('%Y-%m-%d').to_s %></h1>
     </div>
-    <div class="ui tiny button">Edit gift info</div>
+    <%= link_to edit_gift_path(gift.gift_comp_id) do %>
+        <div class="ui tiny button">Edit gift info</div>
+    <% end %>
     <% if gift.status == 'In progress' %>
         <%= link_to complete_gift_path(gift.gift_comp_id) do %>
             <div class="ui tiny button">Complete gift</div>
         <% end %>
     <% end %>
-    <div class="ui tiny button">Delete gift</div>
+    <%= link_to gift_path(gift.gift_comp_id), method: 'DELETE' do %>
+        <div class="ui tiny button">Delete gift</div>
+    <% end %>
     
 </div>

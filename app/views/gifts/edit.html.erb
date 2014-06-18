@@ -1,6 +1,7 @@
 <%= render 'pages/header' %>
+
 <div class="ui form segment center_form">
-    <%= form_for @gift do |f| %>
+    <%= form_for @gift, url: gift_path(@gift.gift_comp_id), method: 'PATCH' do |f| %>
         <div class="field">
             <%= f.label :recipient_name, 'Who are you donating your time for?' %>
             <%= f.text_field :recipient_name, placeholder: 'Full name' %>
@@ -52,6 +53,20 @@
             <%= f.label :description, 'Describe the volunteer act you will perform' %>
             <%= f.text_area :description %>
         </div>
-        <%= f.submit 'Create gift', class: 'ui tiny button' %>
+        <% if @gift.status == 'Gift complete' %>
+            <div class="field">
+                <%= f.label :inspiration, 'How did the recipient inspire you to perform this specific act?' %>
+                <%= f.text_area :inspiration %>
+            </div>
+            <div class="field">
+                <%= f.label :feel, 'How did you feel performing this act?' %>
+                <%= f.text_area :feel %>
+            </div>
+            <div class="field">
+                <%= f.label :detailed_message, 'Leave a personal message for the recipient' %>
+                <%= f.text_area :detailed_message %>
+            </div>
+        <% end %>
+        <%= f.submit 'Update gift', class: 'ui tiny button' %>
     <% end %>
 </div>

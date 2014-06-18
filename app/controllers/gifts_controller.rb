@@ -20,20 +20,20 @@ class GiftsController < ApplicationController
         if @gift.save
             id = @gift.create_secure_gift_id
             @gift.update_attribute(:status, 'In progress')
-            redirect_to root_path, notice: 'Your gift has been successfully created!'
+            redirect_to user_profile_path, notice: 'Your gift has been successfully created!'
         else
             render :new, notice: 'Uh oh.'
         end
     end
 
     def edit
-        @gift = Gift.find_by_id(params[:id])
+        @gift = Gift.find_by(gift_comp_id: params[:id])
     end
 
     def update
         @gift = Gift.find_by(gift_comp_id: params[:id])
         @gift.update_attributes(gift_params)
-        redirect_to user_profile_path
+        redirect_to user_profile_path, notice: 'Your gift has been updated'
     end 
 
     def complete
@@ -41,7 +41,9 @@ class GiftsController < ApplicationController
     end
 
     def destroy
-        @gift = Gift.find_by_id(params[:id])
+        @gift = Gift.find_by(gift_comp_id: params[:id])
+        @gift.destroy
+        redirect_to user_profile_path, notice: 'Your gift has been deleted'
     end
 
     private
