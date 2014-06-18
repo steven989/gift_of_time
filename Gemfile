@@ -62,3 +62,6 @@ gem 'carrierwave'
 
 # 6. For manipulating photo uploads
 gem 'rmagick', :require => 'RMagick'
+
+# 7. For uploading into Amazon S3
+gem 'fog', '~> 1.3.1'
