@@ -1,0 +1,9 @@
+<div class="user_options_menu hidden">
+    <div class="ui secondary vertical">
+        <% unless @abridged_menu %>
+            <%= link_to 'View my gifts', user_profile_path%>
+            <div class="ui fitted divider"></div>
+        <% end %>
+        <%= link_to 'Logout', session_path('current'), method: 'DELETE' %>
+    </div>
+</div>

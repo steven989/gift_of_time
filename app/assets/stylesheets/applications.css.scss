@@ -13,6 +13,10 @@ body {
     background-color: $lighter-theme;
 }
 
+.hidden {
+  display: none !important;
+}
+
 /* --------------- Header ------------------- */
 
 .header {
@@ -34,14 +38,14 @@ body {
     .nav{
         position: absolute;
         right: 10rem;
-        min-width: 23rem;
+        min-width: 51rem;
 
         .nav_button {
             cursor: pointer;
             box-sizing:border-box;
             -moz-box-sizing:border-box; /* Firefox */
             height: 3rem;
-            float: left;
+            float: right;
             padding: 0 0.5rem;
             padding-top: 1rem;
             color: $lighter-theme;
@@ -53,9 +57,10 @@ body {
     }
 
     .find_gift {
-        position: absolute;
-        right: 34rem;
+        position: relative;
+        float: right;
         top: 0.8rem;
+        width: 14rem;
 
         .field {
             float: left;
@@ -172,3 +177,27 @@ body {
         padding: 0.2rem;
     }
 }
+
+  /* ------ user option menu (drop down when profile is clicked) ----- */
+
+  .user_options_menu {
+    position: absolute;
+    right: 0;
+    top: 3rem;
+    padding: 0.5rem;
+    width: 12.5rem;
+    background-color: rgba(255,255,255,0.5);
+    overflow: auto; 
+    font-size: 1rem;
+
+    a {
+        color: black;
+        font-size: 0.8rem;
+        text-decoration: none;
+
+        &:hover {
+            color: rgb(145, 145, 145);
+        }
+    }
+
+  }
