@@ -3,9 +3,6 @@
         <div class="logo">LOGO</div>
     <% end %>
     <div class="nav">
-        <%= link_to find_gift_path do %>
-            <div class="nav_button" id="gift_look_up">Find a gift</div>
-        <% end %>
         <%= link_to new_gift_path do %>
             <div class="nav_button" id="new_gift">Make a gift</div>
         <% end %>
@@ -27,5 +24,17 @@
                 <div class="nav_button" id='logout'>Logout</div>
             <% end %>
         <% end %>   
+    </div>
+    <div class="find_gift">
+        <div class="ui form">
+            
+        <%= form_tag gift_path('current'), method: 'GET' do %>
+            <div class="field">
+                <%= text_field_tag 'gift_id', nil, placeholder: 'Enter gift number' %>
+            </div>
+            <%= submit_tag 'Find your gift', class: "ui tiny button" %>
+        <% end %>
+
+        </div>
     </div>
 </div>

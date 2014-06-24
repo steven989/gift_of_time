@@ -26,15 +26,15 @@ body {
         top: 1rem;
         color: $lighter-theme;
 
-            &:hover {
-                background-color: $hilite;
-            }
+        &:hover {
+            background-color: $hilite;
+        }
     }
 
     .nav{
         position: absolute;
         right: 10rem;
-        min-width: 30rem;
+        min-width: 23rem;
 
         .nav_button {
             cursor: pointer;
@@ -51,6 +51,30 @@ body {
             }
         }
     }
+
+    .find_gift {
+        position: absolute;
+        right: 34rem;
+        top: 0.8rem;
+
+        .field {
+            float: left;
+            margin: 0rem 0.2rem 0rem 0rem !important;
+
+            input {
+                padding: 0.3rem !important;
+                font-size: 0.6rem !important;
+            }
+        }
+
+        .button {
+            float: left;
+            padding: 0.45rem !important;
+            font-size: 0.6rem !important;
+            margin: 0rem 0.2rem 0rem 0rem !important;
+        }
+    }
+
 }
 
 /* --------------- Index ------------------- */
@@ -113,7 +137,7 @@ body {
 /* --------------- Show gift history ------------------- */
 
 .gift_history_container {
-    
+
     position: absolute;
     width: 30rem;
     top: 5rem;
