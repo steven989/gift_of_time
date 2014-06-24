@@ -1,5 +1,6 @@
 $(function(){
     toggleUserProfileMenu();
+    datepicker_userInfo();
 });
 
 
@@ -18,4 +19,10 @@ function toggleUserProfileMenu() {
         // $('#user').off('click').on('click',function(){
         //         window.open("/user/profile#summary","_self")
         // });
+}
+
+// datepicker
+
+function datepicker_userInfo() {
+    $('.user_info #user_birthday').datepicker();
 }

@@ -65,3 +65,6 @@ gem 'rmagick', :require => 'RMagick'
 
 # 7. For uploading into Amazon S3
 gem 'fog', '~> 1.3.1'
+
+# 8. JQuery UI
+gem 'jquery-ui-rails'

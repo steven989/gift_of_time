@@ -18,9 +18,14 @@ class UsersController < ApplicationController
     end 
 
     def edit
+        @message = flash[:notice]
+        @user = current_user
     end
 
     def update
+        @user = current_user
+        @user.update_attributes(user_update_params)
+        redirect_to edit_user_path(current_user), notice: @user.errors.full_messages.join(", ")
     end 
 
     def destroy
@@ -34,6 +39,10 @@ class UsersController < ApplicationController
 
     def user_params
         params.require(:user).permit(:email,:password,:password_confirmation)
+    end
+
+    def user_update_params
+        params.require(:user).permit(:email,:first_name, :last_name, :birthday, :city, :province, :country)
     end
 
 end
