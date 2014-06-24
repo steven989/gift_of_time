@@ -1,5 +1,16 @@
 <%= render 'pages/header' %>
+
+<div class="info">
+What do you get for the individual who has everything? <br><br>  You give them The Gift of Time, your time! By donating your time on behalf of another through The Gift of Time, you maximize the three attributes that derive value in the eyes of the receiver and create a truly impactful gift: <br><br>
+   Highly personalized by choosing a social action targeted towards the receiver<br>
+   High value by donating personal resources valued greater than currency<br>
+   Proof of planning, effort and time spent<br><br>
+To effectively maximize these three elements, please answer the questions thoroughly and upload a picture of yourself performing the act.
+<div class="ui inverted divider"></div>
+</div>
+
 <div class="ui form center_form">
+
     <%= form_for @gift do |f| %>
         <div class="field">
             <%= f.label :recipient_name, 'Who are you donating your time for?' %>
