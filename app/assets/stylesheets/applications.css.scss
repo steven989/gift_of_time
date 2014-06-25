@@ -112,7 +112,7 @@ body {
 
 /* --------------- Index ------------------- */
 
-.video, .how_this_works, .other_content {
+.video, .how_this_works, .faq, .about_us {
     position: relative;
     margin: 5rem 10rem; 
 }
@@ -141,7 +141,17 @@ body {
     }
 }
 
-.other_content {
+.faq {
+
+    text-align: center;
+
+    h1 {
+        font-size: 3rem;
+        margin: 2rem 0;
+    }
+}
+
+.about_us {
 
     text-align: center;
 

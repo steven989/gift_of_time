@@ -3,6 +3,8 @@ class Gift < ActiveRecord::Base
     belongs_to :user
     mount_uploader :volunteer_photos, VolunteerPhotoUploader
 
+    
+
     def create_secure_gift_id
         while true
             id = SecureRandom.hex(4).upcase
