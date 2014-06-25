@@ -16,12 +16,10 @@
     <%= link_to edit_gift_path(gift.gift_comp_id) do %>
         <div class="ui tiny button">Edit gift info</div>
     <% end %>
-    <% if gift.status == 'In progress' %>
-        <%= link_to complete_gift_path(gift.gift_comp_id) do %>
-            <div class="ui tiny button">Complete gift</div>
-        <% end %>
-    <% end %>
     <%= link_to gift_path(gift.gift_comp_id), method: 'DELETE' do %>
         <div class="ui tiny button">Delete gift</div>
+    <% end %>
+    <%= link_to certificate_path(gift.gift_comp_id) do %>
+        <div class="ui tiny button">Show certificate</div>
     <% end %>
 </div>

@@ -68,3 +68,6 @@ gem 'fog', '~> 1.3.1'
 
 # 8. JQuery UI
 gem 'jquery-ui-rails'
+
+# 9. Generate PDF certificate
+gem 'prawn'

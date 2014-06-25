@@ -20,7 +20,7 @@
         </div>
         <div class="field">
             <%= f.label :hours, 'How many hours did you volunteer for?' %>
-            <%= f.text_field :hours %>         
+            <%= f.text_fiel :hours %>         
         </div>
         <div class="field">
             <%= f.label :inspiration, 'How did the recipient inspire you to perform this specific act?' %>
@@ -47,7 +47,7 @@
         <% end %>
         <%= f.submit 'Complete gift', class: 'ui tiny button' %>
     <% end %>
-            <%= link_to user_profile_path do %>
-            <div class="ui tiny button">Back</div>
-        <% end %>
+    <%= link_to user_profile_path do %>
+        <div class="ui tiny button">Back</div>
+    <% end %>
 </div>

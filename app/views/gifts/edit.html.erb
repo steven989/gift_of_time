@@ -53,34 +53,36 @@
             <%= f.label :description, 'Describe the volunteer act you will perform' %>
             <%= f.text_area :description %>
         </div>
-        <% if @gift.status == 'Completed' %>
-            <div class="field">
-                <%= f.label :inspiration, 'How did the recipient inspire you to perform this specific act?' %>
-                <%= f.text_area :inspiration %>
-            </div>
-            <div class="field">
-                <%= f.label :feel, 'How did you feel performing this act?' %>
-                <%= f.text_area :feel %>
-            </div>
-            <div class="field">
-                <%= f.label :detailed_message, 'Leave a personal message for the recipient' %>
-                <%= f.text_area :detailed_message %>
-            </div>
-            <div class="field">
-                <% if @gift.photo_exists? %>
+        <div class="field">
+            <%= f.label :hours, 'How many hours did you volunteer for?' %>
+            <%= f.text_field :hours %>         
+        </div>
+        <div class="field">
+            <%= f.label :inspiration, 'How did the recipient inspire you to perform this specific act?' %>
+            <%= f.text_area :inspiration %>
+        </div>
+        <div class="field">
+            <%= f.label :feel, 'How did you feel performing this act?' %>
+            <%= f.text_area :feel %>
+        </div>
+        <div class="field">
+            <%= f.label :detailed_message, 'Leave a personal message for the recipient' %>
+            <%= f.text_area :detailed_message %>
+        </div>
+        <div class="field">
+            <% if @gift.photo_exists? %>
 
-                    <%= image_tag @gift.volunteer_photos.url(:thumb)%><br><br>
-                    <%= link_to remove_photo_path(@gift.gift_comp_id), method: 'PATCH' do %>
-                        <div class="ui tiny button">Remove photo</div>
-                    <% end %>
-                <% else %>
-                    
-                        <%= f.label :volunteer_photos, 'Upload a picture of you performing the act (JPEG, GIF or PNG)' %>
-                        <%= f.file_field :volunteer_photos %>
-                    
+                <%= image_tag @gift.volunteer_photos.url(:thumb)%><br><br>
+                <%= link_to remove_photo_path(@gift.gift_comp_id), method: 'PATCH' do %>
+                    <div class="ui tiny button">Remove photo</div>
                 <% end %>
-            </div>
-        <% end %>
+            <% else %>
+                
+                    <%= f.label :volunteer_photos, 'Upload a picture of you performing the act (JPEG, GIF or PNG)' %>
+                    <%= f.file_field :volunteer_photos %>
+                
+            <% end %>
+        </div>
         <%= f.submit 'Update gift', class: 'ui tiny button' %>
     <% end %>
         <%= link_to user_profile_path do %>

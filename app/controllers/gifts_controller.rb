@@ -53,6 +53,18 @@ class GiftsController < ApplicationController
         redirect_to user_profile_path, notice: 'Your gift has been deleted'
     end
 
+    def certificate
+        @gift = Gift.find_by(gift_comp_id: params[:gift_id])
+        respond_to do |format|
+            format.html {
+                pdf = Prawn::Document.new
+                pdf.text "#{@gift.gift_comp_id}"
+                send_data pdf.render, filename: "test.pdf", type: "application/pdf"
+
+            }
+        end
+    end 
+
     private
 
     def gift_params
