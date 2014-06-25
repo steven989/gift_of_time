@@ -20,10 +20,20 @@ class GiftsController < ApplicationController
         if @gift.save
             id = @gift.create_secure_gift_id
             @gift.update_attribute(:status, 'In progress')
-            redirect_to user_profile_path, notice: 'Your gift has been successfully created!'
+            message = "Your gift has been successfully created! Now perform the act. When you are done, come back to complete your gift with the detail of your act along with a picture."
         else
-            render :new, notice: 'Uh oh.'
+            message = 'Uh oh. Something went wrong.'
         end
+
+        respond_to do |format|
+            format.json {
+                render json: {
+                    message: message,
+                    redirect_url: new_gift_path
+                }
+            }
+        end
+
     end
 
     def edit

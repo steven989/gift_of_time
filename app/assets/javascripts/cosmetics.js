@@ -26,3 +26,13 @@ function toggleUserProfileMenu() {
 function datepicker_userInfo() {
     $('.user_info #user_birthday').datepicker();
 }
+
+// dimmed page message
+
+function dimmedModalMessage(message) {
+    $('.basic.modal .content .message').html(message)
+    $('.basic.modal').modal('show');
+    $('.basic.modal .content .button').off('click').on('click',function(){
+      $('.basic.modal').modal('hide');
+    });  
+}

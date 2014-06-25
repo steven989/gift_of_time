@@ -33,6 +33,18 @@ body {
     }
 }
 
+.basic.modal .content {
+  .message {
+    font-size: 2rem;
+    margin: 3rem auto;
+    text-align: center;}
+
+    .button_container {
+      margin: 0 auto;
+      text-align: center;
+    }
+  }
+
 /* --------------- Header ------------------- */
 
 .header {
