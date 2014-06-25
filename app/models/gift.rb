@@ -3,7 +3,9 @@ class Gift < ActiveRecord::Base
     belongs_to :user
     mount_uploader :volunteer_photos, VolunteerPhotoUploader
 
-    
+    def self.total_hours
+        Gift.all.sum(:hours)
+    end
 
     def create_secure_gift_id
         while true
