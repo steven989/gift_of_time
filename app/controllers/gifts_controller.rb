@@ -57,9 +57,9 @@ class GiftsController < ApplicationController
         @gift = Gift.find_by(gift_comp_id: params[:gift_id])
         respond_to do |format|
             format.html {
-                pdf = Prawn::Document.new
-                pdf.text "#{@gift.gift_comp_id}"
-                send_data pdf.render, filename: "test.pdf", type: "application/pdf"
+                pdf = Certificate.new(@gift, view_context)
+                pdf.generate
+                send_data pdf.render, filename: "#{Date.today.strftime("%d/%m/%Y")} Gift for for #{@gift.recipient_name}.pdf", type: "application/pdf"
 
             }
         end
