@@ -106,7 +106,7 @@ class GiftsController < ApplicationController
     private
 
     def gift_params
-        params.require(:gift).permit(:recipient_name, :relationship_to_gifter, :cause, :other_cause, :description, :user_id, :inspiration, :feel, :detailed_message, :volunteer_photos, :hours)
+        params.require(:gift).permit(:recipient_name, :relationship_to_gifter, :cause, :other_cause, :description, :user_id, :inspiration, :feel, :detailed_message, :volunteer_photos, :hours, :organization)
     end
 
 end

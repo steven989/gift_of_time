@@ -63,6 +63,10 @@ To effectively maximize these three elements, please answer the questions thorou
             <%= f.label :description, 'Describe the volunteer act you will perform' %>
             <%= f.text_area :description %>
         </div>
+        <div class="field">
+            <%= f.label :organization, 'What is the organization you will donate your time to?' %>
+            <%= f.text_field :organization %>
+        </div>
         <%= f.submit 'Create gift', class: 'ui tiny button', id: 'create_gift' %>
     <% end %>
 </div>
