@@ -16,4 +16,8 @@ class User < ActiveRecord::Base
     self.first_name.blank? || self.first_name.nil? ? self.email : self.first_name+" "+self.last_name
   end
 
+  def admin?
+    self.role == 'admin'
+  end 
+
 end

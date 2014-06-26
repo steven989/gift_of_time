@@ -35,6 +35,11 @@ class UsersController < ApplicationController
         @gifts = current_user.gifts.order('created_at desc')
     end
 
+    def admin
+        @users = User.all
+        @gifts = Gift.all
+    end
+
     private
 
     def user_params

@@ -1,9 +1,17 @@
 <div class="user_options_menu hidden">
-    <div class="ui secondary vertical">
-            <%= link_to 'My info', edit_user_path(current_user) %>
+    <% if current_user.admin? %>
+        <div class="ui secondary vertical">
+            <%= link_to 'Admin panel', admin_path %>
             <div class="ui fitted divider"></div>
-            <%= link_to 'View my gifts', user_profile_path%>
-            <div class="ui fitted divider"></div>
-        <%= link_to 'Logout', session_path('current'), method: 'DELETE' %>
-    </div>
+            <%= link_to 'Logout', session_path('current'), method: 'DELETE' %>
+        </div>
+    <% else %>
+        <div class="ui secondary vertical">
+                <%= link_to 'My info', edit_user_path(current_user) %>
+                <div class="ui fitted divider"></div>
+                <%= link_to 'View my gifts', user_profile_path%>
+                <div class="ui fitted divider"></div>
+                <%= link_to 'Logout', session_path('current'), method: 'DELETE' %>
+        </div>
+    <% end %>
 </div>
