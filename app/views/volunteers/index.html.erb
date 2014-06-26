@@ -1,0 +1,75 @@
+<%= render 'pages/header' %>
+
+<div class="notice">
+    <p><%= @notice %></p>
+</div>
+<div class="add_volunteer buttons">
+    <div class="ui tiny button add_volunteer_button">Post a volunteer opportunity</div>
+    <div class="ui tiny button other_resources">Other volunteer resources</div>
+</div>
+<div class="add_volunteer_background hidden">
+    <div class="add_volunteer ui form center_form">
+        <h2>Post a volunteer opportunity</h2><br>   
+        <%= form_for @volunteer do |f| %>
+        <div class="field">
+            <%= f.label 'title', 'Volunteer position' %>
+            <%= f.text_field 'title' %>
+        </div>
+        <div class="field">
+            <%= f.label 'description', 'Volunteer description' %>
+            <%= f.text_area 'description'%>
+        </div>
+        <div class="field">
+            <%= f.label 'organization', 'Organization' %>
+            <%= f.text_field 'organization' %>
+        </div>
+        <div class="field">
+            <%= f.label 'hours', 'Hours' %>
+            <%= f.text_field 'hours' %>
+        </div>
+        <div class="field">
+            <%= f.label 'location', 'Location' %>
+            <%= f.text_field 'location' %>
+        </div>
+        <div class="field">
+            <%= f.label 'contact_name', 'Contact name' %>
+            <%= f.text_field 'contact_name' %>
+        </div>
+        <div class="field">
+            <%= f.label 'email', 'Contact email' %>
+            <%= f.text_field 'email' %>
+        </div>
+        <%= f.submit 'Add opportunity', class: 'ui tiny button' %>
+        <% end %>
+    </div>
+</div>
+<div class="current_volunteers center_form">
+    <table id="volunteer_bulletin" class="display">
+        <thead>
+            <tr>
+                <th>Volunteer position</th>
+                <th>Volunteer description</th>
+                <th>Organization</th>
+                <th>Hours</th>
+                <th>Location</th>
+                <th>Contact name</th>
+                <th>Contact email</th>
+                <th>Date posted</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @volunteers.each do |volunteer| %>
+            <tr>
+                <td><%= volunteer.title %></td>
+                <td><%= volunteer.description %></td>
+                <td><%= volunteer.organization %></td>
+                <td><%= volunteer.hours %></td>
+                <td><%= volunteer.location %></td>
+                <td><%= volunteer.contact_name %></td>
+                <td><%= volunteer.email %></td>
+                <td><%= volunteer.created_at.strftime('%Y-%m-%d') %></td>
+            </tr>
+            <% end %>
+        </tbody>
+    </table>
+</div>

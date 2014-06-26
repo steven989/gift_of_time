@@ -20,6 +20,7 @@ GoT::Application.routes.draw do
   get 'gift/:gift_id/complete' => 'gifts#complete', as: 'complete_gift'
   get 'gift/:gift_id/certificate' => 'gifts#certificate', as: 'certificate'
   get 'users/admin' => 'users#admin', as: 'admin'
+  resources :volunteers, except: [:show]
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

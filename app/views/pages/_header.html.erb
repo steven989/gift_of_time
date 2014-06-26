@@ -16,7 +16,9 @@
                 <%= render 'users/profile_menu' %>
             </div>
         <% end %>   
-        <div class="nav_button" id="volunteer">Volunteer resources</div>
+        <%= link_to volunteers_path do %>
+            <div class="nav_button" id="volunteer">Volunteer resources</div>
+        <% end %>
         <%= link_to new_gift_path do %>
             <div class="nav_button" id="new_gift">Make a gift</div>
         <% end %>
