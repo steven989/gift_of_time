@@ -176,7 +176,7 @@ body {
 
 /* --------------- Volunteer resources page ------------------- */
 
-.add_volunteer_background {
+.popup_form_background {
 
     position: absolute;
     top: 0;
@@ -187,7 +187,7 @@ body {
     z-index: 2;
     overflow: scroll;
 
-    .add_volunteer {
+    .popup_form {
 
     }
 }
@@ -266,3 +266,22 @@ body {
     }
 
   }
+
+/* ------ Admin page ----- */
+
+.admin_users, .admin_gifts {
+    width: 90%;
+    padding: 1rem;
+    overflow: scroll;
+    
+
+    th, td {
+        font-size: 0.3rem;
+        text-align: center;
+    }
+
+    .button {
+        min-width: 5rem ;
+        text-transform: none !important;
+    }
+}

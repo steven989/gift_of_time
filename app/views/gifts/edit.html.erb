@@ -73,7 +73,7 @@
             <% if @gift.photo_exists? %>
 
                 <%= image_tag @gift.volunteer_photos.url(:thumb)%><br><br>
-                <%= link_to remove_photo_path(@gift.gift_comp_id), method: 'PATCH' do %>
+                <%= link_to remove_photo_path(@gift.gift_comp_id) do %>
                     <div class="ui tiny button">Remove photo</div>
                 <% end %>
             <% else %>

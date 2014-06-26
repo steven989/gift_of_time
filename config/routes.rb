@@ -14,13 +14,14 @@ GoT::Application.routes.draw do
   get 'user/profile' => 'users#profile', as: 'user_profile'
   resources :sessions, only: [:new, :create, :destroy]
   post "oauth/callback" => "oauths#callback"
-  patch 'gift/:gift_id/remove_photo' => 'gifts#remove_photo', as: 'remove_photo'
+  get 'gift/:gift_id/remove_photo' => 'gifts#remove_photo', as: 'remove_photo'
   get 'oauth/callback' => 'oauths#callback'
   get "oauth/:provider" => "oauths#oauth", :as => :auth_at_provider
   get 'gift/:gift_id/complete' => 'gifts#complete', as: 'complete_gift'
   get 'gift/:gift_id/certificate' => 'gifts#certificate', as: 'certificate'
   get 'users/admin' => 'users#admin', as: 'admin'
   resources :volunteers, except: [:show]
+  get 'admin/update' => 'users#admin_update', as: 'admin_update'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

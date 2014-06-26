@@ -1,2 +1,130 @@
 <%= render 'pages/header' %>
 
+
+
+
+<div class="popup_form_background hidden">
+    <div class="popup_form ui form center_form">
+    </div>
+</div>
+
+<div class="admin_users center_form">
+    <div class="stats">
+        Total users: <%= @total_users %>
+    </div><br>
+    <table id="admin_users" class="display">
+        <thead>
+            <tr>
+                <th>User ID</th>
+                <th>Email</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Birthday</th>
+                <th>City</th>
+                <th>Province</th>
+                <th>Country</th>
+                <th>Date created</th>
+                <th>Date updated</th>
+                <th>Update user</th>
+                <th>Delete user</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @users.each do |user| %>
+            <tr>
+                <td><%= user.id %></td>
+                <td><%= user.email %></td>
+                <td><%= user.first_name %></td>
+                <td><%= user.last_name %></td>
+                <td><%= user.birthday %></td>
+                <td><%= user.city %></td>
+                <td><%= user.province %></td>
+                <td><%= user.country %></td>
+                <td><%= user.created_at.strftime('%Y-%m-%d') %></td>
+                <td><%= user.updated_at.strftime('%Y-%m-%d') %></td>
+                <td><div class="ui tiny button admin_update" data-resource="user" data-id="<%= user.id %>" href="<%= admin_update_path %>">Update</div></td>
+                <td>
+                    <%= link_to user_path(user, admin_edit:true), method: 'DELETE' do %>
+                    <div class="ui tiny button admin_delete">Delete</div>
+                    <% end %>
+                </td>
+            </tr>
+            <% end %>
+        </tbody>
+    </table>
+</div>
+
+
+
+<div class="admin_gifts center_form">
+    <div class="stats">
+        Total gifts: <%= @total_gifts %><br>
+        Total hours: <%= @total_hours %>
+    </div><br>
+    <table id="admin_gifts" class="display">
+        <thead>
+            <tr>
+                <th>Gift ID</th>
+                <th>Gift ID (external)</th>
+                <th>User ID</th>
+                <th>Recipient</th>
+                <th>Relationship</th>
+                <th>Description of act</th>
+                <th>Cause</th>
+                <th>Other Cause</th>
+                <th>How did recipient inspire you?</th>
+                <th>What is your feeling?</th>
+                <th>Message to recipient</th>
+                <th>Hours</th>
+                <th>Photo</th>
+                <th>Status</th>
+                <th>Certificate printed by user?</th>
+                <th>Date created</th>
+                <th>Date updated</th>
+                <th>Update gift</th>
+                <th>Delete gift</th>
+                <th>Certificate</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @gifts.each do |gift| %>
+            <tr>
+                <td><%= gift.id %></td>
+                <td><%= gift.gift_comp_id %></td>
+                <td><%= gift.user_id %></td>
+                <td><%= gift.recipient_name %></td>
+                <td><%= gift.relationship_to_gifter %></td>
+                <td><%= gift.description %></td>
+                <td><%= gift.cause %></td>
+                <td><%= gift.other_cause %></td>
+                <td><%= gift.inspiration %></td>
+                <td><%= gift.feel %></td>
+                <td><%= gift.detailed_message %></td>
+                <td><%= gift.hours %></td>
+                <td>
+                    <% if gift.photo_exists? %>
+                        <%= link_to 'See photo', gift.volunteer_photos.url %>
+                    <% end %>
+                </td>
+                <td><%= gift.status %></td>
+                <td><%= gift.certificate_printed_by_user %></td>
+                <td><%= gift.created_at %></td>
+                <td><%= gift.updated_at %></td>
+                <td><div class="ui tiny button admin_update" data-resource="gift" data-id="<%= gift.id %>" href="<%= admin_update_path %>">Update</div></td>
+                <td>
+                    <%= link_to gift_path(gift, admin_edit:true), method: 'DELETE' do %>
+                    <div class="ui tiny button admin_delete">Delete</div>
+                    <% end %>
+                </td>
+                <td>
+                    <%= link_to certificate_path(gift.gift_comp_id, admin_edit: true) do %>
+                        <div class="ui tiny button">Show</div>
+                    <% end %>                    
+                </td>
+            </tr>
+            <% end %>
+        </tbody>
+    </table>
+</div>
+
+

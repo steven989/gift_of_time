@@ -1,0 +1,32 @@
+<%= form_for @user do |f| %>
+    <div class="field">
+        <%= f.label 'email', 'Email' %>
+        <%= f.text_field 'email' %>
+    </div>
+    <div class="field">
+        <%= f.label 'first_name', 'First Name' %>
+        <%= f.text_field 'first_name' %>
+    </div>
+    <div class="field">
+        <%= f.label 'last_name', 'Last Name' %>
+        <%= f.text_field 'last_name' %>
+    </div>
+    <div class="field">
+        <%= f.label 'birthday', 'Birthday' %>
+        <%= f.text_field 'birthday' %>
+    </div>
+    <div class="field">
+        <%= f.label 'city', 'City' %>
+        <%= f.text_field 'city' %>
+    </div>
+    <div class="field">
+        <%= f.label 'province', 'Province' %>
+        <%= f.text_field 'province' %>
+    </div>
+    <div class="field">
+        <%= f.label 'country', 'Country' %>
+        <%= f.text_field 'country', value: 'Canada' %>
+    </div>
+    <%= f.hidden_field 'admin_edit', value: 'true' %>
+    <%= f.submit 'Update info', class: 'ui tiny button admin_update_send' %>
+<% end %>

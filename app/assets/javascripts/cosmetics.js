@@ -45,28 +45,36 @@ function formatTable() {
     $('#volunteer_bulletin').DataTable({
         "order": [[ 7, "desc" ]]
     });
+
+    $('#admin_users').DataTable({
+        "order": [[ 9, "desc" ]]
+    });
+
+    $('#admin_gifts').DataTable({
+        "order": [[ 15, "desc" ]]
+    });
 }
 
 // show post volunteer form
 
 function postVolunteer() {
     $('.add_volunteer_button').off('click').on('click',function(){
-        $('.add_volunteer_background').css({
+        $('.popup_form_background').css({
             'min-height': $(document).height()
         });
-        toggleVisibility.call($('.add_volunteer_background'))
+        toggleVisibility.call($('.popup_form_background'))
     });
 
-    $('.add_volunteer_background').off('click').on('click',function(){
-        toggleVisibility.call($('.add_volunteer_background'))
+    $('.popup_form_background').off('click').on('click',function(){
+        toggleVisibility.call($('.popup_form_background'))
     });
 
-    $('.add_volunteer_background .add_volunteer').off('click').on('click',function(){
+    $('.popup_form_background .popup_form').off('click').on('click',function(){
         event.stopPropagation();
     });
 
-    $('.add_volunteer_background .add_volunteer .button').off('click').on('click',function(){
-        toggleVisibility.call($('.add_volunteer_background'))
+    $('.popup_form_background .popup_form .button').off('click').on('click',function(){
+        toggleVisibility.call($('.popup_form_background'))
     });
 
 }

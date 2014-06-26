@@ -44,8 +44,17 @@ class GiftsController < ApplicationController
     def update
         @gift = Gift.find_by(gift_comp_id: params[:id])
         @gift.update_attributes(gift_params)
-        redirect_to user_profile_path, notice: 'Your gift has been updated'
+
         @gift.attempt_complete
+        respond_to do |format|
+            format.html {redirect_to user_profile_path, notice: @gift.errors.full_messages.join(", ")}
+            format.json {
+                render json: {
+                    message: @gift.errors.full_messages.join(", "),
+                    redirect_url: admin_path
+                }
+            }
+        end
     end 
 
     def complete        
@@ -55,17 +64,35 @@ class GiftsController < ApplicationController
     def remove_photo
         @gift = Gift.find_by(gift_comp_id: params[:gift_id])
         @gift.remove_volunteer_photos!
-        redirect_to edit_gift_path(@gift.gift_comp_id), notice: 'Your gift has been updated'
+
+        if params[:admin_edit] == 'true'
+            redirect_to admin_path
+        else
+            redirect_to edit_gift_path(@gift.gift_comp_id)
+        end
     end
 
     def destroy
-        @gift = Gift.find_by(gift_comp_id: params[:id])
+        if params[:admin_edit] == 'true'
+            @gift = Gift.find_by(id: params[:id])
+        else
+            @gift = Gift.find_by(gift_comp_id: params[:id])
+        end
         @gift.destroy
-        redirect_to user_profile_path, notice: 'Your gift has been deleted'
+        if params[:admin_edit] == 'true'
+            redirect_to admin_path, notice: "Gift successfully deleted"
+        else
+            redirect_to user_profile_path, notice: "Gift successfully deleted"
+        end
     end
 
     def certificate
         @gift = Gift.find_by(gift_comp_id: params[:gift_id])
+
+        if params[:admin_edit].nil?
+            @gift.update_attribute(:certificate_printed_by_user, DateTime.now.in_time_zone('UTC').strftime('%Y-%m-%d %H:%M:%S UTC'))
+        end
+
         respond_to do |format|
             format.html {
                 pdf = Certificate.new(@gift, view_context)

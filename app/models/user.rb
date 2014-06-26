@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
   validates :password, confirmation: true, on: :create
   validates :password_confirmation, presence: true, on: :create
 
-  has_many :gifts
+  has_many :gifts, dependent: :destroy
   has_many :authentications, dependent: :destroy
 
   accepts_nested_attributes_for :authentications
