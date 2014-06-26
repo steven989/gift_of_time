@@ -50,7 +50,7 @@ function adminUpdate() {
             data: $(this).parent().serialize()
         }).done(function(data){
             if (data.message == "") {
-            var message = "User info successfully updated"
+            var message = "Update successful"
             dimmedModalMessage(message);
             $('.popup_form_background').css({
                 'min-height': $(document).height()

@@ -21,9 +21,28 @@ class VolunteersController < ApplicationController
     end 
 
     def update
+        @volunteer = Volunteer.find_by(id: params[:id])
+        @volunteer.update_attributes(volunteer_params)
+
+        respond_to do |format|
+            format.html {redirect_to volunteers_path, notice: @volunteer.errors.full_messages.join(", ")}
+            format.json {
+                render json: {
+                    message: @volunteer.errors.full_messages.join(", "),
+                    redirect_url: admin_path
+                }
+            }
+        end
     end
 
     def destroy
+        @volunteer = Volunteer.find_by(id: params[:id])
+        @volunteer.destroy
+        if params[:admin_edit] == 'true'
+            redirect_to admin_path, notice: "Volunteer successfully deleted"
+        else
+            redirect_to volunteers_path, notice: "Gift successfully deleted"
+        end
     end
 
     private

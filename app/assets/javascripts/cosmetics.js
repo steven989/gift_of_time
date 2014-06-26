@@ -51,7 +51,11 @@ function formatTable() {
     });
 
     $('#admin_gifts').DataTable({
-        "order": [[ 15, "desc" ]]
+        "order": [[ 16, "desc" ]]
+    });
+
+    $('#admin_volunteers').DataTable({
+        "order": [[ 9, "desc" ]]
     });
 }
 

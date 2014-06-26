@@ -69,6 +69,8 @@ class UsersController < ApplicationController
         @gifts = Gift.all.order(created_at: :desc)
         @total_gifts = @gifts.length
         @total_hours = Gift.total_hours
+        @total_printed = @gifts.select {|gift| !gift.certificate_printed_by_user.nil?}.length
+
     end
 
     def admin_update
@@ -79,7 +81,8 @@ class UsersController < ApplicationController
             @gift = Gift.find_by(id: params[:id])
             render partial: 'admin_gift_update'
         elsif params[:resource] == 'volunteer'
-
+            @volunteer = Volunteer.find_by(id:params[:id])
+            render partial: 'admin_volunteer_update'
         end
     end
 

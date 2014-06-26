@@ -59,7 +59,8 @@
 <div class="admin_gifts center_form">
     <div class="stats">
         Total gifts: <%= @total_gifts %><br>
-        Total hours: <%= @total_hours %>
+        Total hours: <%= @total_hours %><br>
+        Total printed: <%= @total_printed %>
     </div><br>
     <table id="admin_gifts" class="display">
         <thead>
@@ -120,6 +121,54 @@
                     <%= link_to certificate_path(gift.gift_comp_id, admin_edit: true) do %>
                         <div class="ui tiny button">Show</div>
                     <% end %>                    
+                </td>
+            </tr>
+            <% end %>
+        </tbody>
+    </table>
+</div>
+
+
+
+<div class="admin_volunteers center_form">
+    <div class="stats">
+        Total volunteer postings: <%= @total_volunteers %><br>
+    </div><br>
+    <table id="admin_volunteers" class="display">
+        <thead>
+            <tr>
+                <th>Posting ID</th>
+                <th>Volunteer title</th>
+                <th>Description</th>
+                <th>Organization</th>
+                <th>Total hours</th>
+                <th>Location</th>
+                <th>Contact email</th>
+                <th>Contact name</th>
+                <th>Date created</th>
+                <th>Date updated</th>
+                <th>Update posting</th>
+                <th>Delete posting</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @volunteers.each do |volunteer| %>
+            <tr>
+                <td><%= volunteer.id %></td>
+                <td><%= volunteer.title %></td>
+                <td><%= volunteer.description %></td>
+                <td><%= volunteer.organization %></td>
+                <td><%= volunteer.hours %></td>
+                <td><%= volunteer.location %></td>
+                <td><%= volunteer.email %></td>
+                <td><%= volunteer.contact_name %></td>
+                <td><%= volunteer.created_at %></td>
+                <td><%= volunteer.updated_at %></td>
+                <td><div class="ui tiny button admin_update" data-resource="volunteer" data-id="<%= volunteer.id %>" href="<%= admin_update_path %>">Update</div></td>
+                <td>
+                    <%= link_to volunteer_path(volunteer, admin_edit:true), method: 'DELETE' do %>
+                    <div class="ui tiny button admin_delete">Delete</div>
+                    <% end %>
                 </td>
             </tr>
             <% end %>

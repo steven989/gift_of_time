@@ -1,0 +1,31 @@
+<%= form_for @volunteer do |f| %>
+    <div class="field">
+        <%= f.label :title, 'Volunteer title' %>
+        <%= f.text_field :title %>
+    </div>
+    <div class="field">
+        <%= f.label :description, 'Description' %>
+        <%= f.text_area :description %>
+    </div>
+    <div class="field">
+        <%= f.label :organization, 'Organization' %>
+        <%= f.text_field :organization %>
+    </div>
+    <div class="field">
+        <%= f.label :hours, 'Total hours' %>
+        <%= f.text_field :hours %>
+    </div>
+    <div class="field">
+        <%= f.label :location, 'Location' %>
+        <%= f.text_field :location %>
+    </div>
+    <div class="field">
+        <%= f.label :contact_name, 'Contact name' %>
+        <%= f.text_field :contact_name %>
+    </div>
+    <div class="field">
+        <%= f.label :email, 'Contact email' %>
+        <%= f.text_field :email %>
+    </div>
+    <%= f.submit 'Update posting', class: 'ui tiny button admin_update_send' %>
+<% end %>

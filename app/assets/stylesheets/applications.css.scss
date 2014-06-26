@@ -178,7 +178,7 @@ body {
 
 .popup_form_background {
 
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
@@ -269,7 +269,7 @@ body {
 
 /* ------ Admin page ----- */
 
-.admin_users, .admin_gifts {
+.admin_users, .admin_gifts, .admin_volunteers {
     width: 90%;
     padding: 1rem;
     overflow: scroll;
