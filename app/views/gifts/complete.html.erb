@@ -1,7 +1,7 @@
 <%= render 'pages/header' %>
 
 <div class="ui form center_form">
-    <%= form_for @gift, url: gift_path(@gift.gift_comp_id), method: 'PATCH', html: {multipart: true} do |f| %>
+    <%= form_for @gift, url: gift_path(@gift.gift_comp_id, todo: 'complete'), method: 'PATCH', html: {multipart: true} do |f| %>
         <div class="field">
             <%= f.label :hours, 'How many hours did you volunteer for?' %>
             <%= f.text_field :hours %>         

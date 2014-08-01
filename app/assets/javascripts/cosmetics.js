@@ -3,6 +3,7 @@ $(function(){
     datepicker_userInfo();
     formatTable();
     postVolunteer();
+    accordions();
 });
 
 
@@ -21,6 +22,11 @@ function toggleUserProfileMenu() {
         // $('#user').off('click').on('click',function(){
         //         window.open("/user/profile#summary","_self")
         // });
+}
+
+// accordion
+function accordions() {
+    $('#checkout_options').accordion();
 }
 
 // datepicker

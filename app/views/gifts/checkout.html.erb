@@ -1,0 +1,20 @@
+<%= render 'pages/header' %>
+
+<div class="center_form">
+    Choose your purchase option:<br><br>
+    <div id="checkout_options">
+        <h3>Purchase a plaque</h3>
+        <div><p>blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah</p></div>
+        <h3>Purchase a framed certificate</h3>
+        <div><p>blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah</p></div>
+        <h3>Download a free PDF certificate</h3>
+        <div><p>blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah</p></div>
+    </div>
+    <br><br>
+    <%= link_to complete_gift_path(@gift.gift_comp_id) do %>
+        <div class="ui tiny button">Back</div>
+    <% end %>
+    <%= link_to user_profile_path do %>
+        <div class="ui tiny button">Go to my profile</div>
+    <% end %>
+</div>

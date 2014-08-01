@@ -47,7 +47,13 @@ class GiftsController < ApplicationController
 
         @gift.attempt_complete
         respond_to do |format|
-            format.html {redirect_to user_profile_path, notice: @gift.errors.full_messages.join(", ")}
+            format.html {
+                if params[:todo] == 'complete' && @gift.status == 'Completed'
+                redirect_to checkout_path(@gift.gift_comp_id), notice: "You gift has been successfully created!"
+                else 
+                redirect_to user_profile_path, notice: @gift.errors.full_messages.join(", ")
+                end
+            }
             format.json {
                 render json: {
                     message: @gift.errors.full_messages.join(", "),
@@ -102,6 +108,10 @@ class GiftsController < ApplicationController
             }
         end
     end 
+
+    def checkout
+        @gift = Gift.find_by(gift_comp_id: params[:gift_id])
+    end
 
     private
 

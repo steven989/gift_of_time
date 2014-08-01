@@ -19,6 +19,7 @@ GoT::Application.routes.draw do
   get "oauth/:provider" => "oauths#oauth", :as => :auth_at_provider
   get 'gift/:gift_id/complete' => 'gifts#complete', as: 'complete_gift'
   get 'gift/:gift_id/certificate' => 'gifts#certificate', as: 'certificate'
+  get 'gift/:gift_id/checkout' => 'gifts#checkout', as: 'checkout'
   get 'users/admin' => 'users#admin', as: 'admin'
   resources :volunteers, except: [:show]
   get 'admin/update' => 'users#admin_update', as: 'admin_update'
