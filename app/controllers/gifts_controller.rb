@@ -21,7 +21,7 @@ class GiftsController < ApplicationController
             id = @gift.create_secure_gift_id
             @gift.update_attribute(:status, 'In progress')
             GiftMailer.next_step_email(current_user, @gift).deliver
-            message = "Your gift has been successfully created! Now perform the act. When you are done, come back to complete your gift with the detail of your act along with a picture."
+            message = "Your gift has been successfully designed! Now perform the act. When you're done, come back to complete your gift. Don't forget to take a picture."
         else
             message = 'Uh oh. Something went wrong.'
         end
