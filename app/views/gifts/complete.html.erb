@@ -3,24 +3,8 @@
 <div class="ui form center_form">
     <%= form_for @gift, url: gift_path(@gift.gift_comp_id), method: 'PATCH', html: {multipart: true} do |f| %>
         <div class="field">
-            <%= f.label :recipient_name, 'Recipient' %>
-            <%= f.text_field :recipient_name, readonly: "readonly", disabled: "disabled" %>
-        </div>
-        <div class="field">
-            <%= f.label :relationship_to_gifter, 'Relationship' %>
-            <%= f.text_field :relationship_to_gifter, readonly: "readonly", disabled: "disabled" %>
-        </div>
-        <div class="field">
-            <%= f.label :cause, 'Cause' %>
-            <%= f.text_field :cause, readonly: "readonly", disabled: "disabled" %>
-        </div>
-        <div class="field">
-            <%= f.label :description, 'Description of volunteer' %>
-            <%= f.text_area :description, readonly: "readonly", disabled: "disabled" %>
-        </div>
-        <div class="field">
             <%= f.label :hours, 'How many hours did you volunteer for?' %>
-            <%= f.text_fiel :hours %>         
+            <%= f.text_field :hours %>         
         </div>
         <div class="field">
             <%= f.label :inspiration, 'How did the recipient inspire you to perform this specific act?' %>

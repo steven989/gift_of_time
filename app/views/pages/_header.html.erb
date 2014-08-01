@@ -12,7 +12,7 @@
             <% end %>
         <% else %>
             <div class="nav_button" id='user'>
-                <%= current_user.email %>
+                <%= current_user.display_name %>
                 <%= render 'users/profile_menu' %>
             </div>
         <% end %>   
@@ -20,7 +20,7 @@
             <div class="nav_button" id="volunteer">Volunteer resources</div>
         <% end %>
         <%= link_to new_gift_path do %>
-            <div class="nav_button" id="new_gift">Make a gift</div>
+            <div class="nav_button" id="new_gift">Design a gift</div>
         <% end %>
         <div class="find_gift">
             <div class="ui form">

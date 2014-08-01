@@ -16,13 +16,15 @@
                 <option class="item" value="Friend">Friend</option> 
                 <option class="item" value="Mentor">Mentor</option> 
                 <option class="item" value="Significant other">Significant other</option> 
+                <option class="item" value="Significant other">Other</option> 
             </select>
         </div>
         <div class="field">
              <%= f.label :cause, 'To what cause are you donating your time?' %>
             <select id='gift_cause' name='gift[cause]'>
                 <option class="item" value="Academia, Learning and Skills Development">Academia, Learning and Skills Development</option>
-                <option class="item" value="Alcoholism and Drug Abuse">Alcoholism and Drug Abuse</option> 
+                <option class="item" value="Alcoholism and Drug Abuse">Addiction</option> 
+                <option class="item" value="Racism">Anti-Racism</option> 
                 <option class="item" value="Animal Rights">Animal Rights</option> 
                 <option class="item" value="Children's Support and Rights">Children's Support and Rights</option> 
                 <option class="item" value="Civil Rights">Civil Rights</option> 
@@ -35,18 +37,17 @@
                 <option class="item" value="Human Rights">Human Rights</option> 
                 <option class="item" value="Illness - Research and Awareness">Illness - Research and Awareness</option> 
                 <option class="item" value="International Aid">International Aid</option> 
-                <option class="item" value="LGBT">LGBT</option> 
+                <option class="item" value="LGBT">LGBT Rights</option> 
                 <option class="item" value="Mental Health">Mental Health</option> 
                 <option class="item" value="Pay it Forward - Act of Kindness">Pay it Forward - Act of Kindness</option> 
                 <option class="item" value="Political">Political</option> 
-                <option class="item" value="Racism">Racism</option> 
                 <option class="item" value="Religious">Religious</option> 
                 <option class="item" value="Women's Rights">Women's Rights</option> 
                 <option class="item" value="Other">Other</option> 
             </select>           
         </div>
         <div class="field">
-            <%= f.label :other_cause, 'If other, what social cause?' %>
+            <%= f.label :other_cause, 'If other, what cause?' %>
             <%= f.text_field :other_cause %>
         </div>
         <div class="field">
@@ -54,38 +55,16 @@
             <%= f.text_area :description %>
         </div>
         <div class="field">
-            <%= f.label :organization, 'What is the organization you will donate your time to?' %>
+            <%= f.label :organization, 'Which organization will you donate your time to?' %>
             <%= f.text_field :organization %>
         </div>
         <div class="field">
-            <%= f.label :hours, 'How many hours did you volunteer for?' %>
-            <%= f.text_field :hours %>         
+            <%= f.label :expected_hours, 'How many hours do you expect to donate?' %>
+            <%= f.text_field :expected_hours %>
         </div>
         <div class="field">
-            <%= f.label :inspiration, 'How did the recipient inspire you to perform this specific act?' %>
-            <%= f.text_area :inspiration %>
-        </div>
-        <div class="field">
-            <%= f.label :feel, 'How did you feel performing this act?' %>
-            <%= f.text_area :feel %>
-        </div>
-        <div class="field">
-            <%= f.label :detailed_message, 'Leave a personal message for the recipient' %>
-            <%= f.text_area :detailed_message %>
-        </div>
-        <div class="field">
-            <% if @gift.photo_exists? %>
-
-                <%= image_tag @gift.volunteer_photos.url(:thumb)%><br><br>
-                <%= link_to remove_photo_path(@gift.gift_comp_id) do %>
-                    <div class="ui tiny button">Remove photo</div>
-                <% end %>
-            <% else %>
-                
-                    <%= f.label :volunteer_photos, 'Upload a picture of you performing the act (JPEG, GIF or PNG)' %>
-                    <%= f.file_field :volunteer_photos %>
-                
-            <% end %>
+            <%= f.label :expected_completion_date, 'When do you expect to complete your hours?' %>
+            <%= f.text_field :expected_completion_date %>
         </div>
         <%= f.submit 'Update gift', class: 'ui tiny button' %>
     <% end %>

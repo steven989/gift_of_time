@@ -30,7 +30,7 @@ class UsersController < ApplicationController
         end
         @user.update_attributes(user_update_params)
         respond_to do |format|
-            format.html {redirect_to edit_user_path(current_user), notice: @user.errors.full_messages.join(", ")}
+            format.html {redirect_to user_profile_path, notice: @user.errors.full_messages.join(", ")}
             format.json {
                 render json: {
                     message: @user.errors.full_messages.join(", "),
@@ -57,6 +57,10 @@ class UsersController < ApplicationController
 
     def profile
         @gifts = current_user.gifts.order('created_at desc')
+        @user = current_user
+        @in_progress_gifts = @user.gifts.where("status like 'In progress'").length
+        @completed_gifts = @user.gifts.where("status like 'Completed'").length
+        @completed_hours = @user.gifts.where("status like 'Completed'").sum('hours')
     end
 
     def admin

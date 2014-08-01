@@ -26,7 +26,8 @@ function toggleUserProfileMenu() {
 // datepicker
 
 function datepicker_userInfo() {
-    $('.user_info #user_birthday').datepicker();
+    $('#user_birthday').datepicker({dateFormat: 'yy-mm-dd'});
+    $('#gift_expected_completion_date').datepicker({dateFormat: 'yy-mm-dd'});
 }
 
 // dimmed page message

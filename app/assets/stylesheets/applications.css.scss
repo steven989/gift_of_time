@@ -165,7 +165,7 @@ body {
 
 /* --------------- New gift ------------------- */
 
-.info {
+.background_info {
     font-size: 1.2rem;
     margin: 4rem auto 0rem auto;
     position: relative;
@@ -204,17 +204,81 @@ body {
     left: 10rem;
 }
 
-/* --------------- Show gift history ------------------- */
+/* ------ User profile ----- */
+
+.info {
+    position: absolute;
+    left: 10rem;
+    height: 20rem;
+    width: 15rem;
+    top: 7rem;
+
+    .info_head{
+        margin: 0rem 0rem 1rem 0rem;
+    }
+
+    .field {
+        
+        input {
+            padding: 0rem;
+            background: none;
+            border: none;
+            width: 100%;
+            font-size: 0.8rem;
+        } 
+
+        label {
+            font-size: 1rem;
+            color: rgb(141, 62, 0);
+        }
+    }
+
+    .submit {
+        cursor: pointer;
+        width: 80%;
+        background-color: rgb(216, 216, 216);
+        border: 1px solid rgb(209, 209, 209);
+        border-radius: 2px;
+        -webkit-transition: background-color 250ms; /* For Safari 3.1 to 6.0 */
+        transition: background-color 250ms;
+
+        &:hover {
+        background-color: rgb(205, 205, 205);
+        border: 1px solid rgb(194, 194, 194);            
+        }
+    }
+}
+
+.section_title {
+    font-size: 1.3rem;
+}
+
+.stats {
+    position: absolute;
+    right: 10rem;
+    width: 10rem;
+    top: 7rem;
+
+    .stat {
+        text-align: center;
+
+        span {
+            font-size: 3rem;
+        }
+    }
+}
 
 .gift_history_container {
 
     position: absolute;
-    width: 30rem;
-    top: 5rem;
+    width: 32rem;
+    top: 7rem;
     left: 50%;
     margin-left: -15rem;
 
     .gift_less_detail {
+        box-sizing:border-box;
+        -moz-box-sizing:border-box; /* Firefox */        
         width: 100%;
         background-color: rgba(255,255,255,0.5);
         position: relative;
@@ -274,6 +338,8 @@ body {
     }
 
   }
+
+
 
 /* ------ Admin page ----- */
 

@@ -30,7 +30,7 @@ class GiftsController < ApplicationController
             format.json {
                 render json: {
                     message: message,
-                    redirect_url: new_gift_path
+                    redirect_url: user_profile_path
                 }
             }
         end
@@ -68,7 +68,7 @@ class GiftsController < ApplicationController
         if params[:admin_edit] == 'true'
             redirect_to admin_path
         else
-            redirect_to edit_gift_path(@gift.gift_comp_id)
+            redirect_to complete_gift_path(@gift.gift_comp_id)
         end
     end
 
@@ -106,7 +106,7 @@ class GiftsController < ApplicationController
     private
 
     def gift_params
-        params.require(:gift).permit(:recipient_name, :relationship_to_gifter, :cause, :other_cause, :description, :user_id, :inspiration, :feel, :detailed_message, :volunteer_photos, :hours, :organization)
+        params.require(:gift).permit(:recipient_name, :relationship_to_gifter, :cause, :other_cause, :description, :user_id, :inspiration, :feel, :detailed_message, :volunteer_photos, :hours, :organization, :expected_hours, :expected_completion_date)
     end
 
 end
