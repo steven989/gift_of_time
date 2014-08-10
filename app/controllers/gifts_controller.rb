@@ -117,6 +117,16 @@ class GiftsController < ApplicationController
         @price_frame = Price.find_by(item: 'frame').price_in_cents
     end
 
+
+    def donate
+        @key = ENV['STRIPE_PUBLISH_KEY']
+        @giftid = params[:gift_id]
+    end
+
+    def download
+        @giftid = params[:gift_id]
+    end
+
     private
 
     def gift_params

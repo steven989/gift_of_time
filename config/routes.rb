@@ -23,7 +23,9 @@ GoT::Application.routes.draw do
   get 'users/admin' => 'users#admin', as: 'admin'
   resources :volunteers, except: [:show]
   get 'admin/update' => 'users#admin_update', as: 'admin_update'
-  resources :charges, only: [:new, :create]
+  resources :charges, only: [:create]
+  get 'gift/:gift_id/donate' => 'gifts#donate', as: 'donate'
+  get 'gift/:gift_id/download' => 'gifts#download', as: 'download'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

@@ -1,0 +1,10 @@
+<%= render 'pages/header' %>
+
+<div class="center_form">
+    <%= link_to certificate_path(@giftid) do %>
+        <div class="ui tiny button">Download certificate</div>
+    <% end %>
+    <%= link_to user_profile_path do %>
+        <div class="ui tiny button">Return to my profile</div>
+    <% end %>
+</div>

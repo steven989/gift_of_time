@@ -1,0 +1,46 @@
+<%= render 'pages/header' %>
+<script src="https://checkout.stripe.com/v2/checkout.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.js"></script>
+
+
+<%= form_tag charges_path+"?option=donate", class: 'ui form center_form donate_form' do %>
+<h1>Would you like to donate to a charity?</h1>
+<br><br>
+<div class="field" id="name">
+    <%= label_tag 'name', 'Name of the charity' %>
+    <%= text_field_tag 'name' %>
+</div>
+<div class="field" id='amount'>
+    <%= label_tag 'amount', 'Amount you\'d like to give (in dollars Canadian)' %>
+    <%= text_field_tag 'amount' %>
+</div>
+<span class="ui tiny button" id='donate'>Donate now</span>
+<%= link_to download_path(@giftid) do %>
+<span class="ui tiny button">Skip</span>
+<% end %>
+<% end %>
+
+<script>
+$('#donate').click(function(){
+  var token = function(res){
+    var $input = $('<input type=hidden name=stripeToken />').val(res.id);
+    var $email = $('<input type=hidden name=email />').val(res.email);
+    var $gift = $('<input type=hidden name=gift />').val('<%= @giftid %>');
+    var $charity = $('<input type=hidden name=charity />').val($('.donate_form #name input').val());
+    $('form').append($input).append($email).append($gift).append($charity).submit();
+  };
+
+  StripeCheckout.open({
+    key:         '<%= @key %>',
+    address:     true,
+    amount:      $('.donate_form #amount input').val()*100,
+    currency:    'cad',
+    name:        'Gift of Time',
+    description: 'Donation to '+$('.donate_form #name input').val(),
+    panelLabel:  'Donate',
+    token:       token
+  });
+
+  return false;
+});
+</script>

@@ -18,7 +18,11 @@
         <% end %>
         </div></div>
         <h3>Download a free PDF certificate</h3>
-        <div><div class="image"><img src="http://www.advancemortgagecorporation.com/Certificates/Suzette_DeMarsh_Loan_Closer_Certificate_Image.JPG" alt=""></div><div class="purchase_link"><span class="text">Download now</span></div></div>
+        <div><div class="image"><img src="http://www.advancemortgagecorporation.com/Certificates/Suzette_DeMarsh_Loan_Closer_Certificate_Image.JPG" alt=""></div><div class="purchase_link">
+        <%= link_to donate_path(@giftid) do %>
+            <span class="text">Download now</span>
+        <% end %>
+        </div></div>
     </div>
     <br><br>
     <%= link_to complete_gift_path(@gift.gift_comp_id) do %>
