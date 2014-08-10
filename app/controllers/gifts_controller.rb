@@ -111,6 +111,10 @@ class GiftsController < ApplicationController
 
     def checkout
         @gift = Gift.find_by(gift_comp_id: params[:gift_id])
+        @giftid = params[:gift_id]
+        @key = ENV['STRIPE_PUBLISH_KEY']
+        @price_plaque = Price.find_by(item: 'plaque').price_in_cents
+        @price_frame = Price.find_by(item: 'frame').price_in_cents
     end
 
     private

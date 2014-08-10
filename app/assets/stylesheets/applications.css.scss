@@ -359,3 +359,35 @@ body {
         text-transform: none !important;
     }
 }
+
+/* ------ Checkout page ----- */
+
+ #checkout_options {
+    
+    div {
+
+        .image {
+            width: 50%;
+            height: 11rem;
+            display: inline-block;
+            float:left;
+
+            img {
+                height: 90%;
+                display: block;
+                margin: 0 auto 0 auto;
+            }
+        }
+        .purchase_link {
+            display: inline-block;
+            width: 50%;
+            height: 8rem;
+            position: relative;
+
+            .text {
+                position: absolute;
+                top: 3rem;
+            }
+        }
+    }
+ }

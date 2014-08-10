@@ -1,14 +1,24 @@
 <%= render 'pages/header' %>
+<script src="https://checkout.stripe.com/v2/checkout.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.js"></script>
 
 <div class="center_form">
     Choose your purchase option:<br><br>
     <div id="checkout_options">
         <h3>Purchase a plaque</h3>
-        <div><p>blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah</p></div>
+        <div><div class="image"><img src="http://www.accentawards.com/images/images%20used/PK8BK.jpg" alt=""></div><div class="purchase_link">
+        <%= form_tag charges_path+"?option=plaque" do %>
+            <span class="text" id='plaque_option'>Purchase now</span>
+        <% end %>
+        </div></div>
         <h3>Purchase a framed certificate</h3>
-        <div><p>blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah</p></div>
+        <div><div class="image"><img src="http://www.ahmedabadcity.com/gifts/largeimages/certificate_bg1.jpg" alt=""></div><div class="purchase_link">
+        <%= form_tag charges_path+"?option=frame" do %>
+            <span class="text" id='frame_option'>Purchase now</span>
+        <% end %>
+        </div></div>
         <h3>Download a free PDF certificate</h3>
-        <div><p>blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah</p></div>
+        <div><div class="image"><img src="http://www.advancemortgagecorporation.com/Certificates/Suzette_DeMarsh_Loan_Closer_Certificate_Image.JPG" alt=""></div><div class="purchase_link"><span class="text">Download now</span></div></div>
     </div>
     <br><br>
     <%= link_to complete_gift_path(@gift.gift_comp_id) do %>
@@ -18,3 +28,49 @@
         <div class="ui tiny button">Go to my profile</div>
     <% end %>
 </div>
+
+<script>
+$('#plaque_option').click(function(){
+  var token = function(res){
+    var $input = $('<input type=hidden name=stripeToken />').val(res.id);
+    var $email = $('<input type=hidden name=email />').val(res.email);
+    var $gift = $('<input type=hidden name=gift />').val('<%= @giftid %>');
+    $('form').append($input).append($email).append($gift).submit();
+  };
+
+  StripeCheckout.open({
+    key:         '<%= @key %>',
+    address:     true,
+    amount:      <%= @price_plaque %>,
+    currency:    'cad',
+    name:        'Gift of Time',
+    description: 'Plaque certificate',
+    panelLabel:  'Purchase',
+    token:       token
+  });
+
+  return false;
+});
+
+$('#frame_option').click(function(){
+  var token = function(res){
+    var $input = $('<input type=hidden name=stripeToken />').val(res.id);
+    var $email = $('<input type=hidden name=email />').val(res.email);
+    var $gift = $('<input type=hidden name=gift />').val('<%= @giftid %>');
+    $('form').append($input).append($email).append($gift).submit();
+  };
+
+  StripeCheckout.open({
+    key:         '<%= @key %>',
+    address:     true,
+    amount:      <%= @price_frame %>,
+    currency:    'cad',
+    name:        'Gift of Time',
+    description: 'Framed certificate',
+    panelLabel:  'Purchase',
+    token:       token
+  });
+
+  return false;
+});
+</script>

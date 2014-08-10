@@ -71,3 +71,6 @@ gem 'jquery-ui-rails'
 
 # 9. Generate PDF certificate
 gem 'prawn'
+
+# 10. Accept credit card payment via Stripe
+gem 'stripe', git: 'https://github.com/stripe/stripe-ruby'
