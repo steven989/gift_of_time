@@ -1,0 +1,11 @@
+<%= form_for @price do |f| %>
+    <div class="field">
+        <p><%= @price.item %></p>
+    </div>
+    <div class="field">
+        <%= f.label 'price_in_cents', 'Price (in cents)' %>
+        <%= f.text_field 'price_in_cents' %>
+    </div>
+    <%= f.hidden_field 'admin_edit', value: 'true' %>
+    <%= f.submit 'Update info', class: 'ui tiny button admin_update_send' %>
+<% end %>

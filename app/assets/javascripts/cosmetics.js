@@ -64,7 +64,14 @@ function formatTable() {
     $('#admin_volunteers').DataTable({
         "order": [[ 9, "desc" ]]
     });
+
+    $('#admin_prices').DataTable({
+        "order": [[ 0, "asc" ]]
+    });
+
+    
 }
+
 
 // show post volunteer form
 

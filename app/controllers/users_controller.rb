@@ -64,6 +64,7 @@ class UsersController < ApplicationController
     end
 
     def admin
+        @prices = Price.all
         @users = User.all.order(created_at: :desc)
         @total_users = @users.length
 
@@ -87,6 +88,12 @@ class UsersController < ApplicationController
         elsif params[:resource] == 'volunteer'
             @volunteer = Volunteer.find_by(id:params[:id])
             render partial: 'admin_volunteer_update'
+        elsif params[:resource] == 'price'
+            @price = Price.find_by(id:params[:id])
+            puts '---------------------------------------------------'
+            puts @price.inspect 
+            puts '---------------------------------------------------'
+            render partial: 'admin_price_update'
         end
     end
 

@@ -30,6 +30,7 @@ GoT::Application.routes.draw do
   get 'gift/:gift_id/donate' => 'gifts#donate', as: 'donate'
   get 'gift/:gift_id/download' => 'gifts#download', as: 'download'
   resources :password_resets
+  resources :prices, only: [:update]
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

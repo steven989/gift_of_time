@@ -1,11 +1,32 @@
 <%= render 'pages/header' %>
 
 
-
-
 <div class="popup_form_background hidden">
     <div class="popup_form ui form center_form">
     </div>
+</div>
+
+<div class="admin_prices center_form">
+    <table id="admin_prices" class="display">
+        <thead>
+            <tr>
+                <th>Item</th>
+                <th>Price (in cents)</th>
+                <th>Date updated</th>
+                <th>Update price</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @prices.each do |price| %>
+            <tr>
+                <td><%= price.item %></td>
+                <td><%= price.price_in_cents %></td>
+                <td><%= price.updated_at.strftime('%Y-%m-%d') %></td>
+                <td><div class="ui tiny button admin_update" data-resource="price" data-id="<%= price.id %>" href="<%= admin_update_path %>">Update</div></td>
+            </tr>
+            <% end %>
+        </tbody>
+    </table>
 </div>
 
 <div class="admin_users center_form">
