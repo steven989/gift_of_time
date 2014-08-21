@@ -12,9 +12,17 @@
             <%= label_tag :password, 'Password' %>
             <%= password_field_tag :password %>
         </div>    
-
         <%= submit_tag 'Login', class: 'ui tiny button' %>
-        <div class="ui horizontal divider">Or log in with</div>
-        <%= link_to auth_at_provider_path(provider: :facebook), class: 'mini ui facebook button', id: 'facebook' do %>facebook<% end %>
     <% end %>
+    <div class="ui horizontal divider">Forgot your password?</div>
+    <%= form_tag password_resets_path, :method => :post do %>
+      <div class="field">
+        <%= label_tag :email %><br />
+        <%= text_field_tag :email %> 
+      </div>
+      <%= submit_tag "Reset my password!", class: "ui tiny button" %>
+    <% end %>  
+    <div class="ui horizontal divider">Or log in with</div>
+    <%= link_to auth_at_provider_path(provider: :facebook), class: 'mini ui facebook button', id: 'facebook' do %>facebook<% end %>
+
 </div>

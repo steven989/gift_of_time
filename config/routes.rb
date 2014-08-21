@@ -1,4 +1,7 @@
 GoT::Application.routes.draw do
+  get "password_resets/create"
+  get "password_resets/edit"
+  get "password_resets/update"
   get "oauths/oauth"
   get "oauths/callback"
   # The priority is based upon order of creation: first created -> highest priority.
@@ -26,6 +29,7 @@ GoT::Application.routes.draw do
   resources :charges, only: [:create]
   get 'gift/:gift_id/donate' => 'gifts#donate', as: 'donate'
   get 'gift/:gift_id/download' => 'gifts#download', as: 'download'
+  resources :password_resets
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

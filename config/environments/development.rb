@@ -19,6 +19,9 @@ GoT::Application.configure do
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
 
+  # Force send emails in the dev environment
+  config.action_mailer.perform_deliveries = false
+
   # Raise an error on page load if there are pending migrations
   config.active_record.migration_error = :page_load
 
@@ -26,4 +29,9 @@ GoT::Application.configure do
   # This option may cause significant delays in view rendering with a large
   # number of complex assets.
   config.assets.debug = true
+
+  config.action_mailer.default_url_options = {:host => "localhost:3000"}
+
+
+
 end
